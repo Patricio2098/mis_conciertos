@@ -1,127 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@android:style/Widget.DeviceDefault.Light.ScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="Registrar un Concierto"
-        android:textAllCaps="true"
-        android:textColor="@color/primary_text"
-        android:textSize="@dimen/letraTitulo"
-        android:visibility="visible"
-        ></TextView>
+    android:fillViewport="false"
+    android:orientation="vertical"
+    android:scrollbarStyle="outsideInset"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopBase">
+        android:orientation="vertical"
+        android:visibility="visible">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nombre del artista"
-            android:textSize="@dimen/letraBase"
+            android:textStyle="bold"
+            android:height="60dp"
+            android:background="@color/colorAccent"
             android:gravity="center"
+            android:text="Registrar un Concierto"
+            android:textAllCaps="true"
             android:textColor="@color/primary_text"
-            ></TextView>
+            android:textSize="@dimen/letraTitulo"
+            android:visibility="visible"></TextView>
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="text"
-            android:place="Ingrese Nombre"></EditText>
-    </LinearLayout>
+            android:layout_marginTop="@dimen/marginTopBase">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopBase">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:text="Nombre del artista"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/letraBase"></TextView>
 
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:visibility="visible">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:id="@+id/nombreTxt"
+                android:textSize="@dimen/letraBase"
+                android:hint="Ingrese Nombre">
 
-        </CalendarView>
+            </EditText>
+        </LinearLayout>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopBase">
-
-        <Spinner
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:spinnerMode="dropdown">
+            android:layout_marginTop="@dimen/marginTopBase">
 
-        </Spinner>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopBase">
+            <CalendarView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="visible">
+
+            </CalendarView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTopBase">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown">
+
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTopBase">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:text="Valor de Entrada"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/letraBase">
+
+            </TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/valorTxt"
+                android:textSize="@dimen/letraBase"
+                android:inputType="number"
+                android:hint="$0 ingrese valor">
+
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTopBase">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            </Spinner>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTopBase">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/registrarBtn"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:text="Registrar"
+                android:textColor="@color/primary_light"
+                android:textSize="@dimen/letraBase">
+
+            </Button>
+        </LinearLayout>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Valor de Entrada"
-            android:textSize="@dimen/letraBase"
             android:gravity="center"
-            android:textColor="@color/primary_text">
-
-        </TextView>
-
-        <EditText
+            android:textAllCaps="true"
+            android:textSize="@dimen/letraTitulo"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number">
+            android:layout_marginTop="@dimen/marginTopBase"
+            android:height="45dp"
+            android:background="@color/colorAccent"
+            android:text="Eventos registrados"
+            android:textColor="@color/primary_text"
+            android:textStyle="italic"></TextView>
 
-        </EditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopBase">
-
-        <Spinner
+        <ListView
+            android:id="@+id/eventosDAO"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
 
-        </Spinner>
+        </ListView>
+
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTopBase">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
-            android:text="Registrar"
-            android:textColor="@color/primary_light"
-            android:textSize="@dimen/letraBase"
-            >
-
-        </Button>
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

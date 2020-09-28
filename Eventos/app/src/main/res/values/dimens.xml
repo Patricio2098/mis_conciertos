@@ -3,4 +3,5 @@
     <dimen name="marginTopBase">24dp</dimen>
     <dimen name="letraBase">16sp</dimen>
     <dimen name="letraTitulo">25sp</dimen>
+    <dimen name="pBase">35dp</dimen>
 </resources>
