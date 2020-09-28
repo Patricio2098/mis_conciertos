@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<resources></resources>
+<resources>
+    <dimen name="marginTopBase">24dp</dimen>
+    <dimen name="letraBase">16sp</dimen>
+    <dimen name="letraTitulo">25sp</dimen>
+</resources>
