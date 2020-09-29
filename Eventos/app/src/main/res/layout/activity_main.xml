@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:spinnerMode="dropdown">
+                >
 
             </Spinner>
         </LinearLayout>
@@ -148,21 +148,21 @@
         </LinearLayout>
 
         <TextView
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textSize="@dimen/letraTitulo"
-            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTopBase"
             android:height="45dp"
             android:background="@color/colorAccent"
+            android:gravity="center"
             android:text="Eventos registrados"
+            android:textAllCaps="true"
             android:textColor="@color/primary_text"
-            android:textStyle="italic"></TextView>
+            android:textSize="@dimen/letraTitulo"
+            android:textStyle="italic"
+            android:visibility="visible"></TextView>
 
         <ListView
-            android:id="@+id/eventosDAO"
+            android:id="@+id/eventosLv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
