@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 List<String> errores = new ArrayList<>();
-                String nombreTxt = null;
+                String nba= nombreTxt.getText().toString().trim();
                 String vlr = valorTxt.getText().toString().trim();
                 int valor = 0;
 
                 try {
-                    if (editText.getText().toString().isEmpty())
-                    nombreTxt = editText.getText().toString();
+                    if (nba.getText().toString().isEmpty())
+                    nombreTxt = nba.getText().toString();
                 }catch (Exception ex){
                     errores.add("Debe ingresar el nombre del artista");
                 }
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 if(errores.isEmpty()){
 
                 }else{
-                    mostrarErrores(errores);
+                    (errores);
                 }
 
             }
