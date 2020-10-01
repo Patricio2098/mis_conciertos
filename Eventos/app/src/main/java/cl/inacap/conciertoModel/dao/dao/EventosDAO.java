@@ -1,9 +1,9 @@
-package cl.inacap.conciertos.dao;
+package cl.inacap.conciertoModel.dao.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cl.inacap.conciertos.dto.Evento;
+import cl.inacap.conciertoModel.dto.dto.Evento;
 
 public class EventosDAO {
 

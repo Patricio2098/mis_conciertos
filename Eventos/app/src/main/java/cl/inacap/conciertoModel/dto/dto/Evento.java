@@ -1,4 +1,4 @@
-package cl.inacap.conciertos.dto;
+package cl.inacap.conciertoModel.dto.dto;
 
 import java.util.Date;
 

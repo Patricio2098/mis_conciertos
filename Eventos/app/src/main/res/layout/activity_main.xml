@@ -61,13 +61,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTopBase">
 
-            <CalendarView
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:visibility="visible">
-
-            </CalendarView>
+                android:layout_height="wrap_content"
+                android:id="@+id/idcalendario"
+                android:hint="DD/MM/AAAA"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"
+                ></EditText>
 
         </LinearLayout>
 
