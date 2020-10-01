@@ -1,8 +1,6 @@
 package cl.inacap.conciertos;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,22 +13,26 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import cl.inacap.conciertoModel.dto.dto.Evento;
+import cl.inacap.conciertos.dao.EventosDAO;
+import cl.inacap.conciertos.dao.EventosDAOLista;
+import cl.inacap.conciertos.dto.Evento;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private EditText nombreTxt;
     private EditText valorTxt;
     private Button registrarBtn;
-    private Spinner estilo;
+    private Spinner genero;
     private Spinner valoracion;
-    private ListView eventosLv;
+   
     private List<Evento> eventos = new ArrayList<>();
-    private EditText calendario;
+    private EditText fecha;
+    private ListView eventosLv;
 
 
     @Override
@@ -42,24 +44,56 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         this.registrarBtn = findViewById(R.id.registrarBtn);
         this.eventosLv = findViewById(R.id.eventosLv);
 
-        this.estilo = (Spinner) findViewById(R.id.idestilo);
-        this.valoracion = (Spinner) findViewById(R.id.idvaloracion);
-
-
+        this.genero = (Spinner) findViewById(R.id.idestilo);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorias, android.R.layout.simple_spinner_item);
 
-        estilo.setAdapter(adapter);
+        genero.setAdapter(adapter);
+
 
         this.registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             List<String> errores = new ArrayList<>();
+            String nmb = nombreTxt.getText().toString().trim();
+            String gnr = genero.toString().trim();
+            int vlr = 0;
+            if(nmb.isEmpty()){
+                errores.add("Debe ingresar el nombre del artista");
+            }
+            if (gnr.isEmpty()){
+                errores.add("Debe seleccionar una categoria");
+            }
+
+            try {
+                if (vlr <= 0){
+                    errores.add("el valor de la entrada debe ser mayor a 0")
+                }
+            }catch (Exception ex){
+                errores.add("el valor de la entrada debe ser numerico");
+            }
+            
+
+            if(errores.isEmpty()){
+                    Evento e = new Evento();
+                    e.getNombreartista(nmb);
+                    e.getFecha(fecha);
+                    e.getGenero(genero);
+                    e.getValor(valorTxt);
+                    e.getCalificacion(valoracion);
+
+                    EventosDAO.add(e);
+
+            }else{
+
+            }
+
 
             }
         });
 
-        this.calendario= (EditText) findViewById(R.id.idcalendario);
-        this.calendario.setOnClickListener(new View.OnClickListener() {
+        this.fecha = (EditText) findViewById(R.id.idcalendario);
+        this.fecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogFragment dateFragment = new DatePickerFragment();
@@ -76,9 +110,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+        String currentDateString = DateFormat.getDateInstance(SimpleDateFormat.SHORT).format(c.getTime());
 
-        calendario.setText(currentDateString);
+        EditText editText = (EditText) findViewById(R.id.idcalendario);
+        editText.setText(currentDateString);
 
     }
 

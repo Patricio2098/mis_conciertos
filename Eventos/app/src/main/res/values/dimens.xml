@@ -4,4 +4,5 @@
     <dimen name="letraBase">16sp</dimen>
     <dimen name="letraTitulo">25sp</dimen>
     <dimen name="pBase">35dp</dimen>
+    <dimen name="m_l_e">40dp</dimen>
 </resources>

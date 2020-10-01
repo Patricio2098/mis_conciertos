@@ -1,4 +1,4 @@
-package cl.inacap.conciertoModel.dto.dto;
+package cl.inacap.conciertos.dto;
 
 import java.util.Date;
 
@@ -17,12 +17,12 @@ public class Evento {
         this.nombreartista = nombreartista;
     }
 
-    public int getValor() {
-        return valor;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public String getGenero() {
@@ -31,6 +31,14 @@ public class Evento {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 
     public int getCalificacion() {

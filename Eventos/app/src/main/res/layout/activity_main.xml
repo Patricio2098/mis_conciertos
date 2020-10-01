@@ -67,6 +67,7 @@
                 android:id="@+id/idcalendario"
                 android:hint="DD/MM/AAAA"
                 android:inputType="date"
+                android:gravity="center"
                 android:focusable="false"
                 android:clickable="true"
                 ></EditText>
@@ -125,6 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:entries="@array/valoracion"
                 android:id="@+id/idvaloracion"
                 >
 
