@@ -19,11 +19,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText nombreTxt;
     private EditText valorTxt;
     private Button registrarBtn;
-    private Spinner ;
-    private Spinner ;
+    private Spinner estilo;
+    private Spinner valoracion;
     private ListView eventosLv;
     private List<Evento> eventos = new ArrayList<>();
-    private ArrayAdapter <Evento> adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,36 +33,17 @@ public class MainActivity extends AppCompatActivity {
         this.valorTxt = findViewById(R.id.valorTxt);
         this.registrarBtn = findViewById(R.id.registrarBtn);
         this.eventosLv = findViewById(R.id.eventosLv);
-        this.adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventos);
-        this.eventosLv.setAdapter(adapter);
+        this.estilo = (Spinner) findViewById(R.id.idestilo);
+        this.valoracion = (Spinner) findViewById(R.id.idvaloracion);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorias, android.R.layout.simple_spinner_item);
+
+        estilo.setAdapter(adapter);
+
+        
         this.registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<String> errores = new ArrayList<>();
-                String nba= nombreTxt.getText().toString().trim();
-                String vlr = valorTxt.getText().toString().trim();
-                int valor = 0;
-
-                try {
-                    if (nba.getText().toString().isEmpty())
-                    nombreTxt = nba.getText().toString();
-                }catch (Exception ex){
-                    errores.add("Debe ingresar el nombre del artista");
-                }
-                try {
-                    valor = Integer.parseInt(vlr);
-                    if (valor < 0 ){
-                        throw new NumberFormatException();
-                    }
-                }catch (NumberFormatException ex){
-                    errores.add("el valor de la entrada debe ser mayor a 0");
-                }
-                if(errores.isEmpty()){
-
-                }else{
-                    (errores);
-                }
 
             }
         });

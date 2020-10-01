@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categorias">
+        <item>Seleccione</item>
+        <item>Rock </item>
+        <item>Jazz </item>
+        <item>Pop </item>
+        <item>Regueton </item>
+        <item>Salsa </item>
+        <item>Metal </item>
+    </string-array>
+</resources>
