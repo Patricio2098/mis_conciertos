@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -63,17 +64,18 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         this.registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-            List<String> errores = new ArrayList<>();
-
-
-            if(errores.isEmpty()){
-                EventosDAOLista.getInstance();
-            }else{
-
-            }
-
-
+                try{
+                    Evento e = new Evento();
+                    e.getNombreartista();
+                    e.getFecha();
+                    e.getGenero();
+                    e.getValor();
+                    e.getCalificacion();
+                    eventos.add(e);
+                    Toast.makeText(getApplicationContext(), "Se a generado el evento con exito", Toast.LENGTH_SHORT).show();
+                }catch (Exception ex){
+                    Toast.makeText(getApplicationContext(), "A ocurrido un error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

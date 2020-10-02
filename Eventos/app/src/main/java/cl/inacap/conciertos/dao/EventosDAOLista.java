@@ -10,17 +10,6 @@ public class EventosDAOLista implements EventosDAO{
 
     private static EventosDAOLista inst;
 
-    private EventosDAOLista(){
-
-        Evento e = new Evento();
-        e.getNombreartista();
-        e.getFecha();
-        e.getGenero();
-        e.getValor();
-        e.getCalificacion();
-        eventos.add(e);
-
-    }
     public static EventosDAOLista getInstance(){
         if (inst == null){
             inst = new EventosDAOLista();
