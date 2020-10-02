@@ -7,7 +7,7 @@ public class Evento {
     private Date fecha;
     private String genero;
     private int valor;
-    private int calificacion;
+    private String calificacion;
 
     public String getNombreartista() {
         return nombreartista;
@@ -41,11 +41,11 @@ public class Evento {
         this.valor = valor;
     }
 
-    public int getCalificacion() {
+    public String getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(int calificacion) {
+    public void setCalificacion(String calificacion) {
         this.calificacion = calificacion;
     }
 }

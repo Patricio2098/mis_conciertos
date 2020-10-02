@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import cl.inacap.conciertos.adapters.EventosArrayAdapter;
 import cl.inacap.conciertos.dao.EventosDAO;
 import cl.inacap.conciertos.dao.EventosDAOLista;
 import cl.inacap.conciertos.dto.Evento;
@@ -28,62 +29,46 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     private EditText valorTxt;
     private Button registrarBtn;
     private Spinner genero;
-    private Spinner valoracion;
-   
-    private List<Evento> eventos = new ArrayList<>();
+    private Spinner clasificacion;
     private EditText fecha;
     private ListView eventosLv;
+    private List<Evento> eventos;
+    private EventosArrayAdapter adpt;
+    private EventosDAO eventosDAO = EventosDAOLista.getInstance();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        eventos = eventosDAO.getAll();
+        adpt = new EventosArrayAdapter(this, R.layout.eventos_list, eventos);
+        eventosLv = findViewById(R.id.eventosLv);
+        eventosLv.setAdapter(adpt);
+
         this.nombreTxt = findViewById(R.id.nombreTxt);
         this.valorTxt = findViewById(R.id.valorTxt);
         this.registrarBtn = findViewById(R.id.registrarBtn);
-        this.eventosLv = findViewById(R.id.eventosLv);
 
         this.genero = (Spinner) findViewById(R.id.idestilo);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categorias, android.R.layout.simple_spinner_item);
 
         genero.setAdapter(adapter);
 
+        this.clasificacion = findViewById(R.id.idvaloracion);
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.clasificacion, android.R.layout.simple_spinner_item);
+        clasificacion.setAdapter(adapter1);
 
         this.registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             List<String> errores = new ArrayList<>();
-            String nmb = nombreTxt.getText().toString().trim();
-            String gnr = genero.toString().trim();
-            int vlr = 0;
-            if(nmb.isEmpty()){
-                errores.add("Debe ingresar el nombre del artista");
-            }
-            if (gnr.isEmpty()){
-                errores.add("Debe seleccionar una categoria");
-            }
 
-            try {
-                if (vlr <= 0){
-                    errores.add("el valor de la entrada debe ser mayor a 0")
-                }
-            }catch (Exception ex){
-                errores.add("el valor de la entrada debe ser numerico");
-            }
-            
 
             if(errores.isEmpty()){
-                    Evento e = new Evento();
-                    e.getNombreartista(nmb);
-                    e.getFecha(fecha);
-                    e.getGenero(genero);
-                    e.getValor(valorTxt);
-                    e.getCalificacion(valoracion);
-
-                    EventosDAO.add(e);
-
+                EventosDAOLista.getInstance();
             }else{
 
             }

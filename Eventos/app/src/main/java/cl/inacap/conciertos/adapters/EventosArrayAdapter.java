@@ -22,7 +22,7 @@ public class EventosArrayAdapter extends ArrayAdapter<Evento> {
     public EventosArrayAdapter(@NonNull Activity context, int resource, @NonNull List<Evento> objects) {
         super(context, resource, objects);
         this.activity = context;
-        this.eventos = objects;
+
     }
 
     @NonNull

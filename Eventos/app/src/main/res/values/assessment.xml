@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer-array name="valoracion">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </integer-array>
+    <string-array name="clasificacion">
+        <item>una estrella</item>
+        <item>dos estrellas</item>
+        <item>tres estrellas</item>
+        <item>cuatro estrellas</item>
+        <item>cinco estrellas</item>
+        <item>seis estrellas</item>
+        <item>siete estrellas</item>
+    </string-array>
 </resources>

@@ -7,14 +7,17 @@ import cl.inacap.conciertos.dto.Evento;
 
 public class EventosDAOLista implements EventosDAO{
     private List<Evento> eventos = new ArrayList<>();
+
     private static EventosDAOLista inst;
+
     private EventosDAOLista(){
+
         Evento e = new Evento();
-        e.setNombreartista();
-        e.setFecha();
-        e.setGenero();
-        e.setValor();
-        e.setCalificacion();
+        e.getNombreartista();
+        e.getFecha();
+        e.getGenero();
+        e.getValor();
+        e.getCalificacion();
         eventos.add(e);
 
     }

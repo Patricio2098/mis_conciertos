@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idcalendario"
-                android:hint="DD/MM/AAAA"
+                android:hint="MM/DD/AAAA"
                 android:inputType="date"
                 android:gravity="center"
                 android:focusable="false"
@@ -74,6 +74,18 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTopBase"
+                android:text="Indique Genero del artista"
+                android:textSize="@dimen/letraBase"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text"></TextView>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -119,6 +131,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTopBase"
+                android:text="Indique Clasificacion"
+                android:textSize="@dimen/letraBase"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTopBase">
 
@@ -126,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:entries="@array/valoracion"
+                android:entries="@array/clasificacion"
                 android:id="@+id/idvaloracion"
                 >
 
