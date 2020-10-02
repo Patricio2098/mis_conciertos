@@ -35,14 +35,14 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     private ListView eventosLv;
     private List<Evento> eventos;
     private EventosArrayAdapter adpt;
-    private EventosDAO eventosDAO = EventosDAOLista.getInstance();
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        eventos = eventosDAO.getAll();
+
         adpt = new EventosArrayAdapter(this, R.layout.eventos_list, eventos);
         eventosLv = findViewById(R.id.eventosLv);
         eventosLv.setAdapter(adpt);
@@ -64,15 +64,43 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         this.registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                List <String> errores = new ArrayList<>();
+
                 try{
-                    Evento e = new Evento();
-                    e.getNombreartista();
-                    e.getFecha();
-                    e.getGenero();
-                    e.getValor();
-                    e.getCalificacion();
-                    eventos.add(e);
-                    Toast.makeText(getApplicationContext(), "Se a generado el evento con exito", Toast.LENGTH_SHORT).show();
+                    String nombre = nombreTxt.toString().trim();
+                    String valor = valorTxt.getText().toString().trim();
+                    String gen = genero.toString().trim();
+                    String val = clasificacion.toString().trim();
+                    int vlr = 0;
+
+                    if (gen.isEmpty()){
+                        errores.add("debe indicar el genero");
+                    }
+                    if (val.isEmpty()){
+                        errores.add("debe indicar la valoracion");
+                    }
+                    try{
+                        vlr = Integer.parseInt(valor);
+                        if(vlr <= 0){
+                            throw new NumberFormatException();
+                        }
+                    }catch (NumberFormatException ex){
+                        errores.add("El valor de la entrada debe ser mayor a 0");
+                    }
+
+                    if(errores.isEmpty()) {
+                        if (nombre.isEmpty()){
+                            errores.add("Debe Ingresar el nombre");
+                        }
+                        Evento e = new Evento();
+                        e.setNombreartista(nombre);
+                        e.setGenero(gen);
+                        e.setValor(vlr);
+                        e.setCalificacion(val);
+                        eventos.add(e);
+                        Toast.makeText(getApplicationContext(), "Se a generado el evento con exito", Toast.LENGTH_SHORT).show();
+                    }
+
                 }catch (Exception ex){
                     Toast.makeText(getApplicationContext(), "A ocurrido un error", Toast.LENGTH_SHORT).show();
                 }
